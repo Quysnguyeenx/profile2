@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Tấn Quý - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        #hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width .3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="image/cr7.jpg" alt="Logo Nguyễn Tấn Quý - Chữ Q viết cách điệu màu xanh dương" class="rounded-full">
+                <span class="text-xl font-bold text-gray-800">Nguyễn Tấn Quý</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Trang chủ</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Giới thiệu</a>
+                <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Kỹ năng</a>
+                <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Dự án</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Liên hệ</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-6 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-600 hover:text-gray-900 font-medium">Trang chủ</a>
+                <a href="#about" class="text-gray-600 hover:text-gray-900 font-medium">Giới thiệu</a>
+                <a href="#skills" class="text-gray-600 hover:text-gray-900 font-medium">Kỹ năng</a>
+                <a href="#projects" class="text-gray-600 hover:text-gray-900 font-medium">Dự án</a>
+                <a href="#contact" class="text-gray-600 hover:text-gray-900 font-medium">Liên hệ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 text-white" style="min-height: 90vh;">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Xin chào, tôi là <span class="text-blue-300">Nguyễn Tấn Quý</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-blue-200 mb-6">Lập trình viên Full-stack</h2>
+                <p class="text-lg text-blue-100 mb-8">Tôi tạo ra những giải pháp công nghệ sáng tạo và hiệu quả để giải quyết các vấn đề trong thực tế.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition duration-300">Liên hệ ngay</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300">Dự án của tôi</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="image/cr7500x500.jpg" alt="Nguyễn Tấn Quý - Chân dung chuyên nghiệp, nam giới Việt Nam mặc áo sơ mi trắng, nền trừu tượng màu xanh" class="rounded-full border-4 border-white shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Giới thiệu</h2>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Tôi là ai?</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Tôi là Nguyễn Tấn Quý, một lập trình viên full-stack với 5 năm kinh nghiệm trong việc phát triển các ứng dụng web và di động. Tôi đam mê công nghệ và luôn tìm tòi học hỏi những kỹ thuật mới để nâng cao kỹ năng.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Với tư duy giải quyết vấn đề sáng tạo và khả năng làm việc nhóm tốt, tôi luôn hướng đến việc tạo ra những sản phẩm chất lượng, mang lại trải nghiệm tốt nhất cho người dùng.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-graduate text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Học vấn</h4>
+                                <p class="text-gray-600">Đại học Bách Khoa TP.HCM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-briefcase text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Kinh nghiệm</h4>
+                                <p class="text-gray-600">5+ năm</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Điện thoại</h4>
+                                <p class="text-gray-600">(+84) 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600">
+                </div>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Tôi đã làm việc trong nhiều dự án thuộc các lĩnh vực khác nhau từ thương mại điện tử, giáo dục trực tuyến đến các hệ thống quản lý nội bộ. Mỗi dự án đều mang đến cho tôi những bài học quý giá và cơ hội phát triển bản thân.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Kỹ năng chuyên môn</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-gray-800 flex items-center">
+                        <i class="fas fa-code text-blue-500 mr-3"></i> Kỹ thuật
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">HTML/CSS</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">JavaScript/TypeScript</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">React/Next.js</span>
+                                <span class="text-gray-600">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Node.js/Express</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">MongoDB/SQL</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-gray-800 flex items-center">
+                        <i class="fas fa-user-tie text-blue-500 mr-3"></i> Chuyên nghiệp
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Làm việc nhóm</span>
+                                <span class="text-gray-600">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Giao tiếp</span>
+                                <span class="text-gray-600">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Quản lý dự án</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Giải quyết vấn đề</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Sáng tạo</span>
+                                <span class="text-gray-600">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Dự án tiêu biểu</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Hệ thống Thương mại điện tử</h3>
+                        <p class="text-gray-600 mb-4">Xây dựng nền tảng bán hàng trực tuyến với đầy đủ tính năng từ giỏ hàng, thanh toán đến quản lý đơn hàng.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Nền tảng E-Learning</h3>
+                        <p class="text-gray-600 mb-4">Phát triển hệ thống học trực tuyến với tính năng video bài giảng, làm bài trắc nghiệm và theo dõi tiến độ.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Next.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">NestJS</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Hệ thống Quản lý Dự án</h3>
+                        <p class="text-gray-600 mb-4">Thiết kế công cụ quản lý công việc theo phương pháp Agile với bảng Kanban và thống kê hiệu suất.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Express</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">App Đặt lịch khám bệnh</h3>
+                        <p class="text-gray-600 mb-4">Phát triển ứng dụng di động giúp bệnh nhân đặt lịch khám và nhận thông báo từ bác sĩ dễ dàng.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React Native</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Redux</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Hệ thống Quản lý Nội bộ</h3>
+                        <p class="text-gray-600 mb-4">Xây dựng dashboard quản lý nhân sự, tính lương và đánh giá hiệu suất làm việc.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Angular</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">.NET Core</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">SQL Server</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Blog Cá nhân</h3>
+                        <p class="text-gray-600 mb-4">Thiết kế hệ thống blog cá nhân với chức năng quản lý bài viết, bình luận và phân loại nội dung.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Gatsby</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">GraphQL</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Contentful</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                    Xem tất cả dự án
+                    <i class="fas fa-long-arrow-alt-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">Liên hệ với tôi</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Hãy để lại lời nhắn</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Họ tên</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nhập họ tên của bạn">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nhập email của bạn">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Chủ đề</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Chủ đề bạn quan tâm">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Nội dung</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nhập nội dung lời nhắn"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full md:w-auto">Gửi tin nhắn</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Thông tin liên hệ</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Địa chỉ</h4>
+                                <p class="text-gray-600">123 Đường ABC, Phường Tân quy, Quận 7, TP.HCM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Điện thoại</h4>
+                                <p class="text-gray-600">(+84) 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Email</h4>
+                                <p class="text-gray-600">quy.nguyen@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-globe text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Website</h4>
+                                <p class="text-gray-600">www.nguyentanquy.dev</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-semibold mt-10 mb-4 text-gray-800">Kết nối với tôi</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://placehold.co/40x40" alt="Logo Nguyễn Tấn Quý - Chữ Q viết cách điệu màu trắng" class="rounded-full">
+                        <span class="text-xl font-bold">Nguyễn Tấn Quý</span>
+                    </div>
+                    <p class="mt-4 text-gray-400 max-w-md">Lập trình viên Full-stack với niềm đam mê tạo ra những sản phẩm công nghệ chất lượng và hữu ích.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Liên kết</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Trang chủ</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">Giới thiệu</a></li>
+                            <li><a href="#skills" class="text-gray-400 hover:text-white transition duration-300">Kỹ năng</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Dự án</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Dịch vụ</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Thiết kế Web</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Phát triển Ứng dụng</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tư vấn Công nghệ</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bảo trì Hệ thống</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Hỗ trợ</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Câu hỏi thường gặp</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Chính sách</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Điều khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Nguyễn Tấn Qúy
+            
